@@ -55,15 +55,15 @@ const jobCategory = [
 
 const work = [
     {
-        "name": "Build Your Resume",
+        "name": "Build your resume",
         "desc": "Create a standout resume with your skills."
     },
     {
-        "name": "Apply for Job",
+        "name": "Apply for job",
         "desc": "Find and apply for jobs that match your skills."
     },
     {
-        "name": "Get Hired",
+        "name": "Get hired",
         "desc": "Connect with employers and start your new job."
     }
 ]
@@ -71,22 +71,22 @@ const work = [
 
 const testimonials = [
     {
-        "name": "Shivam Patel",
+        "name": "Shivani Rao",
         "testimonial": "This job portal made job search easy and quick. Recommended to all job seekers!",
         "rating": 5
     },
     {
-        "name": "Abhishek Kullu",
+        "name": "Akruthi Reddy",
         "testimonial": "Found my dream job within a week! The application process was smooth.",
         "rating": 5
     },
     {
-        "name": "Swapnil Pandey",
+        "name": "Swapna Modi",
         "testimonial": "I secured a job offer within days of applying. Exceptional user experience and support.",
         "rating": 4
     },
     {
-        "name": "Pavan Barnana",
+        "name": "Vani Sree",
         "testimonial": "Highly efficient job portal with excellent resources. Helped me land a great position.",
         "rating": 4
     }
