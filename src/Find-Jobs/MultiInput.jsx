@@ -1,18 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Checkbox, CheckIcon, Combobox, Group, Pill, PillsInput, useCombobox ,Input } from '@mantine/core';
-import { IconSearch } from '@tabler/icons-react';
+import { IconSearch, IconSelector } from '@tabler/icons-react';
 
 
 const groceries = ['🍎 Apples', '🍌 Bananas', '🥦 Broccoli', '🥕 Carrots', '🍫 Chocolate'];
 
-const MultiInput = () => {
+const MultiInput = (props) => {
+ 
+    useEffect(()=>{
+           setData(props.options)
+    },[])
+
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
     onDropdownOpen: () => combobox.updateSelectedOptionIndex('active'),
   });
   
   const [search, setSearch] = useState('');
-  const [data, setData] = useState(groceries);
+  const [data, setData] = useState([]);
   const [value, setValue] = useState([]);
 
   const handleValueSelect = (val) => {
@@ -31,7 +36,7 @@ const MultiInput = () => {
   const handleValueRemove = (val) =>
     setValue((current) => current.filter((v) => v !== val));
 
-  const exactOptionMatch = groceries.some((item) => item === search);
+  const exactOptionMatch = data.some((item) => item === search);
 
 
 
@@ -66,9 +71,9 @@ const MultiInput = () => {
   return (
     <Combobox store={combobox} onOptionSubmit={handleValueSelect} withinPortal={false}>
       <Combobox.DropdownTarget>
-        <PillsInput  rightSection={<Combobox.Chevron />}
+        <PillsInput  rightSection={<IconSelector />}
         leftSection={
-            <div className='text-bright-sun-400 bg-mine-shaft-900 rounded-full p-1 mr-1'><IconSearch/></div>
+            <div className='text-bright-sun-400 bg-mine-shaft-900 rounded-full p-1 mr-1'><props.icon/></div>
         }
          variant='unstyled' onClick={() => combobox.toggleDropdown()}>
            <Pill.Group>
@@ -80,7 +85,7 @@ const MultiInput = () => {
                 )}
               </>
             ) : (
-              <Input.Placeholder className='text-mine-shaft-200'>Job Title</Input.Placeholder>
+              <Input.Placeholder className='!text-mine-shaft-200'>{props.title}</Input.Placeholder>
             )}
           </Pill.Group>
         </PillsInput>
@@ -90,7 +95,7 @@ const MultiInput = () => {
       <Combobox.Search
             value={search}
             onChange={(event) => setSearch(event.currentTarget.value)}
-            placeholder="Search groceries"
+            placeholder="Search"
           />
          <Combobox.Options>
           {options}
