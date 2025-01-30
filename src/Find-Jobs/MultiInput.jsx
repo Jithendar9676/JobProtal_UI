@@ -85,7 +85,7 @@ const MultiInput = (props) => {
                 )}
               </>
             ) : (
-              <Input.Placeholder className='!text-mine-shaft-200'>{props.title}</Input.Placeholder>
+              <Input.Placeholder className='!text-mine-shaft-200 pl-1'>{props.title}</Input.Placeholder>
             )}
           </Pill.Group>
         </PillsInput>
