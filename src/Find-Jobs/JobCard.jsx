@@ -3,8 +3,8 @@ import { IconBookmark, IconClockHour3, } from "@tabler/icons-react";
 
 const JobCard=(props)=>{
     return(
-        <div className=" p-5 bg-mine-shaft-900 w-72 flex flex-col gap-3 rounded-xl hover:shadow-[0_0_5px_1px_yellow] !shadow-bright-sun-400">
-            <div className="flex justify-between items-center">
+        <div className=" p-4 bg-mine-shaft-900 w-96 flex flex-col gap-3 rounded-xl hover:shadow-[0_0_5px_1px_yellow] !shadow-bright-sun-400">
+            <div className="flex justify-between">
                 <div className="flex gap-2">
                     <div className="p-2 bg-mine-shaft-800 rounded-md">
                         <img className="w-7" src={`/Icons/${props.company}.png`} alt="" />

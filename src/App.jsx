@@ -8,7 +8,8 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
 import FindJobPage from './Pages/FindJobPage';
-import FindTalent from './Pages/FindTalent';
+import FindTalentPage from './Pages/FindTalentPage';
+import TalentProfilePage from './Pages/TalentProfilePage';
 function App() {
   const theme = createTheme({
     colors: {
@@ -29,8 +30,9 @@ function App() {
       <BrowserRouter>
        <Header/>
       <Routes>
-      <Route path='/find-talent' element={<FindTalent/>}/>
+      <Route path='/find-talent' element={<FindTalentPage/>}/>
         <Route path='/find-jobs' element={<FindJobPage/>}/>
+        <Route path='/talent-profile' element={<TalentProfilePage/>}/>
         <Route path='*' element={  <HomePage />}/>
       </Routes>
       <Footer/>
