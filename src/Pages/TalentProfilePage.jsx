@@ -2,6 +2,8 @@ import { Button, Divider } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import Profile from "../TalentProfile/Profile";
+import { profile } from "../Data/TalentData";
+import RecommendedProfile from "../TalentProfile/RecommendedProfiles";
 
 const TalentProfilePage = () =>{
     return(
@@ -10,8 +12,10 @@ const TalentProfilePage = () =>{
         <Link className="my-2 inline-block" to="/find-talent">
                 <Button leftSection={<IconArrowLeft size={20}/>} color="brightSun.4"  variant="light" >Back</Button>
                 </Link>
-                <Divider  size="xs" />
-                <Profile/>
+                <div className="flex gap-5">
+                <Profile  {...profile}/>
+                <RecommendedProfile/>
+                </div>
     </div>
     );
 }
