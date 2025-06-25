@@ -8,7 +8,6 @@ import RecommendedProfile from "../TalentProfile/RecommendedProfiles";
 const TalentProfilePage = () =>{
     return(
 <div className="min-h-[100vh] bg-mine-shaft-950 font-['poppies'] p-4">
-        <Divider  size="xs" />
         <Link className="my-2 inline-block" to="/find-talent">
                 <Button leftSection={<IconArrowLeft size={20}/>} color="brightSun.4"  variant="light" >Back</Button>
                 </Link>
