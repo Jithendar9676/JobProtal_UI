@@ -1,0 +1,29 @@
+import { Anchor, Button, Checkbox, PasswordInput, TextInput } from "@mantine/core";
+import { IconAt, IconLock } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
+
+const SignUp = () => {
+    return (
+        <div className="w-1/2 flex flex-col justify-center px-20 gap-4">
+            <div className="text-2xl font-semibold">Create Account</div>
+            <TextInput withAsterisk
+                label="Full Name"
+                placeholder="Your Name"
+            />
+            <TextInput withAsterisk
+                leftSection={<IconAt size={16} />}
+                label="Email"
+                placeholder="Your Email"
+            />
+            <PasswordInput withAsterisk leftSection={<IconLock size={18} stroke={1.5} />} label="Password" placeholder="Password" />
+            <PasswordInput withAsterisk leftSection={<IconLock size={18} stroke={1.5} />} label="Confirm Password" placeholder="Confirm Password" />
+            <Checkbox autoContrast
+                label={<>I accepet {' '} <Anchor>terms & conditions</Anchor> </>}
+            />
+            <Button autoContrast variant="filled">Sign Up</Button>
+
+            <diV className="mx-auto">Have an account ? <Link to={"/login"} className="text-bright-sun-400 hover:underline">Login</Link></diV>
+        </div>
+    )
+}
+export default SignUp;

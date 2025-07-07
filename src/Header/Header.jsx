@@ -2,10 +2,13 @@ import { Avatar, Indicator } from '@mantine/core';
 import { IconBell, IconBriefcase, IconSettings } from '@tabler/icons-react';
 import React from 'react'
 import NavLinks from './NavLinks';
+import { useLocation } from 'react-router-dom';
+import ProfileMenu from './ProfileMenu';
 
 const Header = () => {
+   const location=useLocation();
    return (
-      <div className="w-full bg-mine-shaft-950 text-white h-20  flex justify-between items-center px-6 font-['poppies']">
+     location.pathname!="/signup" && location.pathname!="/login" ? <div className="w-full bg-mine-shaft-950 text-white h-20  flex justify-between items-center px-6 font-['poppies']">
          <div className='flex gap-2 items-center text-bright-sun-400' >
             <IconBriefcase className='h-9 w-9' stroke={2} />
             <div className='text-3xl font-semibold' >Jobs Adda</div>
@@ -13,11 +16,8 @@ const Header = () => {
         {/* <NavLinks/> */}
         {NavLinks()}
          <div className='flex gap-3 items-center'>
-
-            <div className='flex gap-2 items-center'>
-               <div>Jithendar</div>
-               <Avatar src="avatar-9.png" alt="it's me" />
-            </div>
+           <ProfileMenu/>
+           
             <div className='bg-mine-shaft-900 p-2 rounded-full'>
                <IconSettings stroke={1.5} />
             </div>
@@ -28,8 +28,9 @@ const Header = () => {
                </Indicator>
             </div>
          </div>
-      </div>
-   );
+      </div>:<></>
+   )
+
 }
 
 export default Header;
