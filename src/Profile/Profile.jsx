@@ -7,6 +7,7 @@ import { useState } from "react";
 import SelectInput from "../PostJob/SelectInput";
 import fields from "../Data/Profile";
 import ExpInput from "./ExpInput";
+import CertiInput from "./CertiInput";
 
 const Profile =(props)=>{
     const select=fields
@@ -14,6 +15,7 @@ const Profile =(props)=>{
     const[about,setAbout]=useState(props.about);
     const[skill,setSkill]=useState([]);
     const[addExp,setAddExp]=useState(false);
+    const[addCerti,setAddCerti]=useState(false);
     const handleEdit=(index)=>{
        const newEdit=[...edit]
        newEdit[index]=!newEdit[index]
@@ -94,18 +96,23 @@ const Profile =(props)=>{
     </div>
      
      </div>
-     <Divider  mx='sm'  my='xl' />
-     <div className="px-3"> 
-     <div className="text-2xl font-semibold mb-3 flex justify-between">Certifications
-
+     <Divider  my='xl' />
+     <div> 
+     <div className="text-2xl font-semibold mb-3 flex justify-between">Certifications <div>
+     <ActionIcon onClick={()=>setAddCerti(true)} size="lg" variant="subtle" color="brightSun.4">
+    <IconPlus className="w-4/5 h-4/5" />
+    </ActionIcon>
      <ActionIcon onClick={()=>handleEdit(4)} size="lg" variant="subtle" color="brightSun.4">
      {edit[4] ? <IconDeviceFloppy className="w-4/5 h-4/5" />:<IconPencil className="w-4/5 h-4/5" />}
-    </ActionIcon>
+    </ActionIcon></div>
      </div>
      
      <div className="flex flex-col gap-8">
         {
-            props.certifications.map((item,index)=><CertiCard key={index} {...item}/>)
+            props.certifications.map((item,index)=><CertiCard key={index} edit={edit[4]} {...item}/>)
+        }
+        {
+           addCerti&&<CertiInput setEdit={setAddCerti}/>
         }
     </div>
      </div>
