@@ -1,9 +1,9 @@
 import { Button, Divider } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import Profile from "../TalentProfile/Profile";
+import Profile from "../Components/TalentProfile/Profile";
 import { profile } from "../Data/TalentData";
-import RecommendedProfile from "../TalentProfile/RecommendedProfiles";
+import RecommendedProfile from "../Components/TalentProfile/RecommendedProfiles";
 
 const TalentProfilePage = () =>{
     return(

@@ -1,6 +1,6 @@
 import { IconBriefcase } from "@tabler/icons-react";
-import SignUp from "../SignUpLogIn/SignUp";
-import LogIn from "../SignUpLogIn/LogIn";
+import SignUp from "../Components/SignUpLogIn/SignUp";
+import LogIn from "../Components/SignUpLogIn/LogIn";
 import { useLocation } from "react-router-dom";
 
 const SignUpPage=()=>{

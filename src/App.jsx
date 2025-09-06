@@ -7,8 +7,7 @@ import '@mantine/carousel/styles.css';
 import '@mantine/tiptap/styles.css';
 import '@mantine/dates/styles.css';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
+
 import FindJobPage from './Pages/FindJobPage';
 import FindTalentPage from './Pages/FindTalentPage';
 import TalentProfilePage from './Pages/TalentProfilePage';
@@ -20,6 +19,8 @@ import PostedJobPage from './Pages/PostedJobPage';
 import JobHistoryPage from './Pages/JobHistoryPage';
 import SignUpPage from './Pages/SignUpPage';
 import ProfilePage from './Pages/ProfilePage';
+import Footer from './Components/Footer/Footer';
+import Header from './Components/Header/Header';
 function App() {
   const theme = createTheme({
     primaryColor:'brightSun',

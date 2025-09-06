@@ -1,0 +1,84 @@
+
+import { Combobox, InputBase, ScrollArea, useCombobox } from '@mantine/core';
+import { useEffect, useRef, useState } from 'react';
+
+
+const SelectInput=(props)=>{
+
+
+   useEffect(() => {
+  setData(Array.isArray(props.options) ? props.options : []); 
+  setValue(props.value || ""); 
+  setSearch(props.value || ""); 
+}, [props.options, props.value]);
+    const combobox = useCombobox({
+        onDropdownClose: () => combobox.resetSelectedOption(),
+      });
+      const [data, setData] = useState([]);
+      const [value, setValue] = useState(null);
+      const [search, setSearch] = useState('');
+    
+      const exactOptionMatch = data.some((item) => item === search);
+      const filteredOptions = exactOptionMatch
+  ? data
+  : data.filter((item) =>
+      typeof item === "string" &&
+      item.toLowerCase().includes((search || "").toLowerCase().trim())
+    );
+    
+      const options = filteredOptions.map((item) => (
+        <Combobox.Option value={item} key={item}>
+          {item}
+        </Combobox.Option>
+      ));
+      return (
+        <Combobox
+          store={combobox}
+          withinPortal={false}
+          onOptionSubmit={(val) => {
+            if (val === '$create') {
+              setData((current) => [...current, search]);
+              setValue(search);
+            } else {
+              setValue(val);
+              setSearch(val);
+            }
+    
+            combobox.closeDropdown();
+          }}
+        >
+          <Combobox.Target>
+            <InputBase withAsterisk className='[&_input]:font-medium'
+            label={props.label}
+              rightSection={<Combobox.Chevron />}
+              value={search}
+              onChange={(event) => {
+                combobox.openDropdown();
+                combobox.updateSelectedOptionIndex();
+                setSearch(event.currentTarget.value);
+              }}
+              onClick={() => combobox.openDropdown()}
+              onFocus={() => combobox.openDropdown()}
+              onBlur={() => {
+                combobox.closeDropdown();
+                setSearch(value || '');
+              }}
+              placeholder={props.placeholder}
+              rightSectionPointerEvents="none"
+            />
+          </Combobox.Target>
+    
+          <Combobox.Dropdown>
+            <Combobox.Options>
+            <ScrollArea.Autosize type="scroll" mah={200}>
+              {options}
+              {!exactOptionMatch && search.trim().length > 0 && (
+                <Combobox.Option value="$create">+ Create {search}</Combobox.Option>
+              )}
+            </ScrollArea.Autosize>
+            </Combobox.Options>
+          </Combobox.Dropdown>
+        </Combobox>
+      );
+}
+export default SelectInput;

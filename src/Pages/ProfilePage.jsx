@@ -1,6 +1,7 @@
 import { Divider } from "@mantine/core";
-import Profile from "../Profile/Profile";
+
 import { profile } from "../Data/TalentData";
+import Profile from "../Components/Profile/Profile";
 
 
 
